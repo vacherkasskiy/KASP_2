@@ -1,9 +1,9 @@
-using KASP_2_API.Models;
-using KASP_2_API.Requests;
-using KASP_2_API.Services;
 using Microsoft.AspNetCore.Mvc;
+using scan_service.Models;
+using scan_service.Requests;
+using scan_service.Services;
 
-namespace KASP_2_API.Controllers;
+namespace scan_service.Controllers;
 
 [ApiController]
 [Route("[controller]")]

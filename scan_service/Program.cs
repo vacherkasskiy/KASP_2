@@ -1,4 +1,4 @@
-using KASP_2_API.Services;
+using scan_service.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

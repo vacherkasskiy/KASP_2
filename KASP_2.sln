@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KASP_2_API", "KASP_2_API\KASP_2_API.csproj", "{7522BC85-D79F-4308-BFD0-9D31A4B9A412}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "scan_service", "scan_service\scan_service.csproj", "{7522BC85-D79F-4308-BFD0-9D31A4B9A412}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KASP_2_Util", "KASP_2_Util\KASP_2_Util.csproj", "{3FBF18DE-E021-4DA9-9BF0-F52DDD1CEDED}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "scan_util", "scan_util\scan_util.csproj", "{3FBF18DE-E021-4DA9-9BF0-F52DDD1CEDED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

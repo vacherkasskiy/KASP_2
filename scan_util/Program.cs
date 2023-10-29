@@ -3,9 +3,9 @@ using System.CommandLine.NamingConventionBinder;
 using System.Net;
 using System.Text;
 using System.Text.Json;
-using KASP_2_Util.Models;
+using scan_util.Models;
 
-namespace KASP_2_Util;
+namespace scan_util;
 
 static class Program
 {

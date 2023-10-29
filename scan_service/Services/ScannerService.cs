@@ -1,6 +1,6 @@
-﻿using KASP_2_API.Models;
+﻿using scan_service.Models;
 
-namespace KASP_2_API.Services;
+namespace scan_service.Services;
 
 public class ScannerService
 {

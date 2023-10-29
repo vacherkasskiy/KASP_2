@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace KASP_2_Util.Models;
+namespace scan_util.Models;
 
 public class ScanReport
 {

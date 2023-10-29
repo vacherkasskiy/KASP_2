@@ -1,4 +1,4 @@
-﻿namespace KASP_2_API.Models;
+﻿namespace scan_service.Models;
 
 public enum FileTypes
 {
