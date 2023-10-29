@@ -24,17 +24,8 @@ public class ScannerController : ControllerBase
     [Route("/scanner/add_task")]
     public IActionResult AddScanDirectoryTask(AddScanDirectoryTaskRequest request)
     {
-        try
-        {
-            Tasks.Add(_taskId++, _service.ScanDirectory(request.Path));
-            return Ok($"Task created with ID: {_taskId - 1}");
-        }
-        catch (IOException e)
-        {
-            return StatusCode(
-                StatusCodes.Status400BadRequest,
-                e.Message);
-        }
+        Tasks.Add(_taskId++, _service.ScanDirectory(request.Path));
+        return Ok($"Task created with ID: {_taskId - 1}");
     }
 
     [HttpGet]
@@ -52,6 +43,10 @@ public class ScannerController : ControllerBase
             return StatusCode(
                 StatusCodes.Status202Accepted, 
                 "Scan task in progress, please wait");
+        if (Tasks[taskId].Exception != null && Tasks[taskId].Exception!.InnerException is IOException)
+            return StatusCode(
+                StatusCodes.Status400BadRequest, 
+                Tasks[taskId].Exception!.InnerException!.Message);
 
         return Ok(Tasks[taskId].Result);
     }
