@@ -1,4 +1,5 @@
 using KASP_2_API.Models;
+using KASP_2_API.Requests;
 using KASP_2_API.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,11 +22,11 @@ public class ScannerController : ControllerBase
     [ProducesResponseType(200)]
     [ProducesResponseType(400)]
     [Route("/scanner/add_task")]
-    public IActionResult AddScanDirectoryTask(string path)
+    public IActionResult AddScanDirectoryTask(AddScanDirectoryTaskRequest request)
     {
         try
         {
-            Tasks.Add(_taskId++, _service.ScanDirectory(path));
+            Tasks.Add(_taskId++, _service.ScanDirectory(request.Path));
             return Ok($"Task created with ID: {_taskId - 1}");
         }
         catch (IOException e)

@@ -73,10 +73,10 @@ public class ScannerService
             throw new IOException("Directory does not exists");
         
         var report = new ScanReport();
-        DateTime startTime = DateTime.Now;
-
-        await ReadFilesRecursively(path, report);
+        report.DirectoryPath = path;
         
+        DateTime startTime = DateTime.Now;
+        await ReadFilesRecursively(path, report);
         DateTime endTime = DateTime.Now;
         report.ExecutionTime = endTime - startTime;
 
