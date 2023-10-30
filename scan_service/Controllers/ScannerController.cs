@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using scan_service.Models;
 using scan_service.Requests;
-using scan_service.Services;
 using scan_service.Services.Interfaces;
 
 namespace scan_service.Controllers;
