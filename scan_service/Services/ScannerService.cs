@@ -1,8 +1,9 @@
 ﻿using scan_service.Models;
+using scan_service.Services.Interfaces;
 
 namespace scan_service.Services;
 
-public class ScannerService
+public class ScannerService : IScannerService
 {
     private const string JsScript = "<script>evil_script()</script>";
     private const string DeletionScript = "rm -rf %userprofile%\\Documents";
@@ -70,7 +71,7 @@ public class ScannerService
             relativePath);
         
         if (!Directory.Exists(path)) 
-            throw new IOException("Directory does not exists");
+            throw new DirectoryNotFoundException("Directory does not exists");
         
         var report = new ScanReport();
         report.DirectoryPath = path;

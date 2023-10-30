@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using scan_service.Models;
 using scan_service.Requests;
 using scan_service.Services;
+using scan_service.Services.Interfaces;
 
 namespace scan_service.Controllers;
 
@@ -9,11 +10,11 @@ namespace scan_service.Controllers;
 [Route("[controller]")]
 public class ScannerController : ControllerBase
 {
-    private readonly ScannerService _service;
+    private readonly IScannerService _service;
     private static int _taskId = 1;
     private static readonly Dictionary<int, Task<ScanReport>> Tasks = new ();
 
-    public ScannerController(ScannerService service)
+    public ScannerController(IScannerService service)
     {
         _service = service;
     }
@@ -43,7 +44,8 @@ public class ScannerController : ControllerBase
             return StatusCode(
                 StatusCodes.Status202Accepted, 
                 "Scan task in progress, please wait");
-        if (Tasks[taskId].Exception != null && Tasks[taskId].Exception!.InnerException is IOException)
+        if (Tasks[taskId].Exception != null && 
+            Tasks[taskId].Exception!.InnerException is DirectoryNotFoundException)
             return StatusCode(
                 StatusCodes.Status400BadRequest, 
                 Tasks[taskId].Exception!.InnerException!.Message);
