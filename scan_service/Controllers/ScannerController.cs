@@ -20,7 +20,6 @@ public class ScannerController : ControllerBase
     
     [HttpPost]
     [ProducesResponseType(200)]
-    [ProducesResponseType(400)]
     [Route("/scanner/add_task")]
     public IActionResult AddScanDirectoryTask(AddScanDirectoryTaskRequest request)
     {
